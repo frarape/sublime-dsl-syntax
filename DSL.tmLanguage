@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>dsl</string>
+		<string>DSL</string>
+	</array>
+	<key>name</key>
+	<string>Jenkins DSL</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>comment</key>
+			<string>New variable definitions like def</string>
+			<key>match</key>
+			<string>(^(\s)*def\s| [+=] |[-=]&gt;)</string>
+			<key>name</key>
+			<string>keyword.other.dsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>multi-line Variable content</string>
+			<key>match</key>
+			<string>(['"]{3})\n(\S|\n)*(['"]{3})</string>
+			<key>name</key>
+			<string>string.quoted.triple.dsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>multi-line Variable content</string>
+			<key>match</key>
+			<string>(")\S*(")</string>
+			<key>name</key>
+			<string>string.quoted.double.dsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>multi-line Variable content</string>
+			<key>match</key>
+			<string>(')\S*(')</string>
+			<key>name</key>
+			<string>string.quoted.single.dsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>boolean argument</string>
+			<key>match</key>
+			<string>(true|false)</string>
+			<key>name</key>
+			<string>constant.language.dsl</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.dsl</string>
+	<key>uuid</key>
+	<string>a0b67aa6-2294-46b8-a7d2-b18f6bc61db1</string>
+</dict>
+</plist>
