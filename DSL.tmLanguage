@@ -15,41 +15,77 @@
 			<key>comment</key>
 			<string>New variable definitions like def</string>
 			<key>match</key>
-			<string>(^(\s)*def\s| [+=] |[-=]&gt;)</string>
+			<string>(def|job)</string>
 			<key>name</key>
-			<string>keyword.other.dsl</string>
+			<string>storage.type.def.dsl</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>multi-line Variable content</string>
-			<key>match</key>
-			<string>(['"]{3})\n(\S|\n)*(['"]{3})</string>
+			<key>begin</key>
+			<string>("""|''')</string>
+			<key>end</key>
+			<string>("""|''')</string>
 			<key>name</key>
 			<string>string.quoted.triple.dsl</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>multi-line Variable content</string>
-			<key>match</key>
-			<string>(")\S*(")</string>
-			<key>name</key>
-			<string>string.quoted.double.dsl</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>multi-line Variable content</string>
-			<key>match</key>
-			<string>(')\S*(')</string>
+			<key>begin</key>
+			<string>(')</string>
+			<key>end</key>
+			<string>(')</string>
 			<key>name</key>
 			<string>string.quoted.single.dsl</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>boolean argument</string>
+			<key>begin</key>
+			<string>(")</string>
+			<key>end</key>
+			<string>(")</string>
+			<key>name</key>
+			<string>string.quoted.double.dsl</string>
+		</dict>
+		<dict>
 			<key>match</key>
-			<string>(true|false)</string>
+			<string>(=|\-\&gt;)</string>
+			<key>name</key>
+			<string>keyword.operator.assignment.dsl</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(===|==|!=|&lt;=|&gt;=|&lt;=&gt;|&lt;&gt;|&lt;|&gt;|&lt;&lt;)</string>
+			<key>name</key>
+			<string>keyword.operator.comparison.dsl</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(!|&amp;&amp;|\+|\\|\\|)</string>
+			<key>name</key>
+			<string>keyword.operator.logical.dsl</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(return|break|continue|default|do|while|for|switch|if |else)</string>
+			<key>name</key>
+			<string>keyword.control.dsl</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?:sprintf|print(?:f|ln)?)</string>
+			<key>name</key>
+			<string>support.function.print.dsl</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(true|false|null|node \/|node \-&gt;)</string>
 			<key>name</key>
 			<string>constant.language.dsl</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(//)</string>
+			<key>end</key>
+			<string>(\n)</string>
+			<key>name</key>
+			<string>comment.line.double-slash.dsl</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

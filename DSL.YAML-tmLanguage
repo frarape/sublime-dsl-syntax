@@ -6,22 +6,43 @@ fileTypes: [dsl, DSL]
 uuid: a0b67aa6-2294-46b8-a7d2-b18f6bc61db1
 
 patterns:
-- name:     keyword.other.dsl
-  match:    (^(\s)*def\s| [+=] |[-=]>)
-  comment:  New variable definitions like def = find better categorisation
+- name:     storage.type.def.dsl
+  match:    (def|job)
+  comment:  New variable definitions like def
 
 - name:     string.quoted.triple.dsl
-  match:    (['"]{3})\n(\S|\n)*(['"]{3})
-  comment:  Multi-line string - not yet working
-
-- name:     string.quoted.double.dsl
-  match:    (")\S*(")
-  comment:  Single line tokenised string
+  begin:    ("""|''')
+  end:      ("""|''')
 
 - name:     string.quoted.single.dsl
-  match:    (')\S*(')
-  comment:  Single line constant string
+  begin:    (')
+  end:      (')
+
+- name:     string.quoted.double.dsl
+  begin:    (")
+  end:      (")
+
+- name:     keyword.operator.assignment.dsl
+  match:    (=|\-\>)
+
+- name:     keyword.operator.comparison.dsl
+  match:    (===|==|!=|<=|>=|<=>|<>|<|>|<<)
+
+- name:     keyword.operator.logical.dsl
+  match:    (!|&&|\+|\\|\\|)
+
+- name:     keyword.control.dsl
+  match:    (return|break|continue|default|do|while|for|switch|if |else)
+
+- name:     support.function.print.dsl
+  match:    (?:sprintf|print(?:f|ln)?)
 
 - name:     constant.language.dsl
-  match:    (true|false)
-  comment:  boolean argument
+  match:    (true|false|null|node \/|node \->)
+
+- name:     comment.line.double-slash.dsl
+  begin:    (//)
+  end:      (\n)
+
+#- name:     constant.numeric.dsl
+#  match:    (-)?[0-9]+
